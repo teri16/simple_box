@@ -3,6 +3,7 @@
 
 # 需求
 * 製作一個dockerfile 來完成目的
+* 保持機器持續開啟
 ## 說明
 * 使用繁體中文說明本檔案使用方式
 ## 基底容器
@@ -17,12 +18,11 @@
 * 開啟機器時啟用ssh服務
 * 開啟22port
 * 使機器可以使用網路
-
-# AI回復
 ## 注意事項
 * 依照步驟呈現，方便學生學習使用
 * 註釋都使用繁體中文撰寫
-## 回復格式
+* 保持機器持續開啟
+# AI回復格式
 ```
 # 使用說明
 # 1. 建立一個Dockerfile並複製以下內容到該文件中
@@ -30,22 +30,6 @@
 # 3. 使用 docker build 指令建立映像檔
 # 4. 建立容器後執行初始化指令
 
-# 基底容器
-FROM ubuntu:latest
-
-# 初始化
-# 把boxset.sh複製到根目錄
-COPY boxset.sh /boxset.sh
-# 設置boxset.sh為可執行權限
-RUN chmod +x /boxset.sh
-# 執行boxset.sh完成機器設定
-RUN /boxset.sh
-
-# 起始程序
-# 開啟機器時啟用SSH服務
-# 開啟22端口
-# 使機器可以使用網路
-CMD service ssh start && /bin/bash
 
 
 ```
