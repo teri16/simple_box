@@ -15,6 +15,9 @@ RUN chmod +x /boxset.sh
 # 執行boxset.sh完成機器設定
 RUN /boxset.sh
 
+# 更新ubuntu系統
+RUN apt-get update && apt-get upgrade -y
+
 # 起始程序
 # 開啟機器時啟用SSH服務
 # 開啟22端口
