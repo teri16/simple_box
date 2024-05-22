@@ -1,25 +1,22 @@
 # 使用說明
-# 1. 建立一個Dockerfile並複製以下內容到該文件中
-# 2. 在終端中導航到Dockerfile所在的目錄
+# 1. 建立一個 Dockerfile 並複製以下內容到該檔案中
+# 2. 在終端中導航到 Dockerfile 所在的目錄
 # 3. 使用 docker build 指令建立映像檔
-# 4. 建立容器後執行初始化指令
+# 4. 使用 docker run 指令啟動容器，並確保容器持續運行
 
 # 基底容器
 FROM ubuntu:latest
 
 # 初始化
-# 把boxset.sh複製到根目錄
+# 將 boxset.sh 複製到根目錄
 COPY boxset.sh /boxset.sh
-# 設置boxset.sh為可執行權限
+# 設置 boxset.sh 為可執行權限
 RUN chmod +x /boxset.sh
-# 執行boxset.sh完成機器設定
+# 執行 boxset.sh 以完成機器設定
 RUN /boxset.sh
 
-# 更新ubuntu系統
-RUN apt-get update && apt-get upgrade -y
-
 # 起始程序
-# 開啟機器時啟用SSH服務
-# 開啟22端口
-# 使機器可以使用網路
-CMD service ssh start && /bin/bash
+# 啟用 SSH 服務
+CMD service ssh start
+# 開啟 22 port
+EXPOSE 22
