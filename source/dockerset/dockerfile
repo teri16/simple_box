@@ -2,13 +2,18 @@
 # 1. 建立一個 Dockerfile 並複製以下內容到該檔案中
 # 2. 在終端中導航到 Dockerfile 所在的目錄
 # 3. 使用 docker build 指令建立映像檔
-# 4. 使用 docker run 指令啟動容器，並確保容器持續運行
+# 4. 使用 docker run 指令啟動容器，確保容器持續運行
 
 # 基底容器
 FROM ubuntu:latest
 
-# 初始化
-# 將 boxset.sh 複製到根目錄
+# 更新套件清單，確保安裝時使用最新版本的軟體
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# 初始化設定
+# 複製 boxset.sh 腳本到容器的根目錄
 COPY boxset.sh /boxset.sh
 # 設置 boxset.sh 為可執行權限
 RUN chmod +x /boxset.sh
