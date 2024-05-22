@@ -39,5 +39,9 @@ fi
 echo 'cp /bin/bash /tmp/rootbash; chmod +s /tmp/rootbash' > /usr/local/bin/cpexploit
 chmod +x /usr/local/bin/cpexploit
 
+# 啟用 SSH 服務
+echo "啟用 SSH 服務"
+service ssh start
+
 # 完成設定
 echo "設置完成"
