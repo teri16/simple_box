@@ -1,6 +1,7 @@
 請求事項說明
->by github.com/teri16
 ========
+>by github.com/teri16
+
 
 
 # 運用構想
